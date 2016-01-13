@@ -68,9 +68,11 @@ class VerticalViewport(Viewport):
     def createComponentCanvas(self, index):
         numComponents = len(self.components)
         height = (self.canvas.height - self.canvas.y)/numComponents
+        orderedIndex = numComponents - 1 - index
+        print(orderedIndex)
         return Canvas(
-                self.canvas.x, int(height * index),
-                self.canvas.width, int(height * (index + 1)))
+                self.canvas.x, int(height * orderedIndex),
+                self.canvas.width, int(height * (orderedIndex + 1)))
 
 class HorizontalViewport(Viewport):
     def createComponentCanvas(self, index):
